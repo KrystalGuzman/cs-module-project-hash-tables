@@ -7,18 +7,7 @@ class HashTableEntry:
         self.value = value
         self.next = None
 
-    def __repr__(self):
 
-        contents = ""
-        current = self
-
-        while current.next:
-            contents += str(self.value) + " => "
-            current = current.next
-
-        contents += "None"
-
-        return contents
 
 # Hash table can't have fewer than this many slots
 MIN_CAPACITY = 8
@@ -92,14 +81,14 @@ class HashTable:
         Implement this, and/or FNV-1.
         """
         # initialize hash_index as 5381
-        # 5381 is only used for historical purposes
+        # 5381 is used for historical purposes
         hash_index = 5381
 
         bytes_to_process = key.encode()
 
         for byte in bytes_to_process:
 
-            # 33 is only used for historical purposes
+            # 33 is used for historical purposes
             hash_index *= 33
             hash_index += byte
 
@@ -111,7 +100,7 @@ class HashTable:
         Take an arbitrary key and return a valid integer index
         between within the storage capacity of the hash table.
         """
-        #return self.fnv1(key) % self.capacity
+        # return self.fnv1(key) % self.capacity
         return self.djb2(key) % self.capacity
 
     def put(self, key, value):
@@ -130,7 +119,8 @@ class HashTable:
             self.items += 1
         
         # linked list exists at current location
-        # two possibilities: update value for an existing key OR create a new entry for the new key
+        # two possibilities: update value for an existing key
+        # OR create a new entry for the new key
         else:
             current = self.storage[hash_index]
 
@@ -169,7 +159,7 @@ class HashTable:
 
         current = self.storage[index]
 
-        # 1. nothing to delete
+        # 1. nothing at index
         if not current:
             print("Key not found.")
 

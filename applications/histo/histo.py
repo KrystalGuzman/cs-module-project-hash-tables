@@ -46,6 +46,7 @@ def make_histogram(file_path):
     freq = word_count(text)
 
     # turn the dict into an list and sort by number of occurrences, ascending
+    # https://stackoverflow.com/questions/9919342/sorting-a-dictionary-by-value-then-key
     freq_list = sorted(freq.items(), key=lambda kv:(-kv[1], kv[0]))
     # find length of longest word
     longest_word_length = len(freq_list[0][0])

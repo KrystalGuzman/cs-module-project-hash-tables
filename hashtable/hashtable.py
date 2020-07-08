@@ -80,6 +80,7 @@ class HashTable:
 
         Implement this, and/or FNV-1.
         """
+        # https://goodmath.scientopia.org/2013/10/20/basic-data-structures-hash-tables/
         # initialize hash_index as 5381
         # 5381 is used for historical purposes
         hash_index = 5381
